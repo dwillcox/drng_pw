@@ -1,5 +1,7 @@
 # drng_pw
 
+Diceware-inspired random password generator implemented in python using Intel's hardware DRNG instruction and C example programs.
+
 These programs demonstrate the use of the RDRAND and RDSEED
 instructions available for newer Intel CPUs (eg. Ivy Bridge).
 
