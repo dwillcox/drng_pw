@@ -155,7 +155,11 @@ if __name__=="__main__":
         print ''
         print '->  ' + ' '.join([ wl[getindx(M_words, Nmax)] for i in xrange(num_words) ])
         print ''
-        print 'There are {:1.1e} possible {}-word combinations in this word list.'.format(float(M_words**num_words), num_words)
-        print 'Assuming a brute-force attack with knowledge of your {}-length word list'.format(M_words)
-        print 'and the ability to execute 1 trillion guesses per second, it would require'
-        print '{:1.1e} years to exhaust all {}-word combinations'.format(float(M_words**num_words)/(1.0e12*3.154e7), num_words)
+        try:
+            ncomb = float(M_words)**float(num_words)
+            print 'There are {:1.1e} possible {}-word combinations in this word list.'.format(ncomb, num_words)
+            print 'Assuming a brute-force attack with knowledge of your {}-length word list'.format(M_words)
+            print 'and the ability to execute 1 trillion guesses per second, it would require'
+            print '{:1.1e} years to exhaust all {}-word combinations'.format(ncomb/(1.0e12*3.154e7), num_words)
+        except OverflowError:
+            pass
